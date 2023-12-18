@@ -14,7 +14,9 @@ function HomePage() {
     <div
       className={`${s['main-wrapper']} flex flex-col min-h-screen text-primary-text`}
     >
-      <header className='header-wrapper h-20 bg-elevation-2 fixed top-0 right-0 left-0'>
+      <header
+        className={`${s['header-wrapper']} h-20 fixed top-0 right-0 left-0 z-10`}
+      >
         <div className='container h-full px-5 mx-auto flex items-center'>
           <div className='header-brand'>
             <img src={app_logo} alt='Cinemate Logo' />
@@ -27,7 +29,9 @@ function HomePage() {
           </nav>
         </div>
       </header>
-      <section className='hero container mx-auto px-5 min-h-screen py-24 flex flex-col justify-center'>
+      <section
+        className={`${s['hero']} container mx-auto px-5 min-h-screen py-24 flex flex-col justify-center`}
+      >
         <div className='w-1/2'>
           <h1 className='section-title text-3xl font-bold mb-2'>
             Welcome to <span className='text-primary'>Cinemate</span>

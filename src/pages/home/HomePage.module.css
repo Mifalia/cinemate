@@ -1,4 +1,14 @@
 .main-wrapper {
   background: linear-gradient(to right, #202020, rgba(0, 0, 0, 0.55)),
-    url('../../assets/images/main-bg.png');
+    url('../../assets/images/main-bg.png') no-repeat top center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
+
+.header-wrapper {
+  backdrop-filter: blur(48px);
+}
+
+.hero {
+  backdrop-filter: blur(2px);
 }
