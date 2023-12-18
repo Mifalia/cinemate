@@ -11,6 +11,10 @@ module.exports = {
         'elevation-2': 'var(--elevation-2)',
         primary: 'var(--primary)',
       },
+      fontFamily: {
+        serif: 'CabinetGrotesk',
+        sans: 'Outfit',
+      },
     },
   },
   plugins: [],

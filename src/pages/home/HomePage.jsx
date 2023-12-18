@@ -15,7 +15,7 @@ function HomePage() {
           <div className='header-brand'>
             <img src={app_logo} alt='Cinemate Logo' />
           </div>
-          <nav className='header-nav ml-auto flex justify-end gap-x-6'>
+          <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium'>
             <Link to='/'>Home</Link>
             <Link to='/'>Search</Link>
             <Link to='/'>Discover</Link>
@@ -24,11 +24,19 @@ function HomePage() {
         </div>
       </header>
       <section className='hero container mx-auto px-5 min-h-screen py-24 flex flex-col justify-center'>
-        <div>
-          <h1 className='section-title'>Welcome to cinemate</h1>
-          <p className='section-description'>
-            Discover the world of movies & TV Shows
+        <div className='w-1/2'>
+          <h1 className='section-title text-3xl font-bold mb-2'>
+            Welcome to <span className='text-primary'>Cinemate</span>
+          </h1>
+          <p className='section-description text-6xl font-bold mb-6 capitalize'>
+            explore the world of TV Shows & more
           </p>
+          <p className='mb-12'>
+            <Link className='underline text-base'>Learn more about us</Link>
+          </p>
+          <button className='rounded-xl border-2 border-primary px-8 py-4 text-primary-text bg-transparent font-bold hover:text-primary-background hover:bg-primary'>
+            Start exploring
+          </button>
         </div>
       </section>
       <footer className='h-min py-6 mt-auto text-center bg-elevation-2'>
