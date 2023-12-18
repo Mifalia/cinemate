@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function HomePage() {
-  return <div>Welcome to homepage</div>;
+  useEffect(() => {
+    document.title = 'Welcome To Cinemate';
+  }, []);
+
+  return (
+    <div className='app-container'>
+      <h1>Welcome to cinemate</h1>
+      <p>Discover the world of movies & TV Shows</p>
+    </div>
+  );
 }
 
 export default HomePage;
