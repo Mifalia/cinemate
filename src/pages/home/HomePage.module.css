@@ -1,0 +1,4 @@
+.main-wrapper {
+  background: linear-gradient(to right, #202020, rgba(0, 0, 0, 0.55)),
+    url('../../assets/images/main-bg.png');
+}

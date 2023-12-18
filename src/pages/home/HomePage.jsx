@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import app_logo from 'assets/images/cinemate-logo.png';
-
 import { Link } from 'react-router-dom';
+
+// assets import
+import s from './HomePage.module.css';
+import app_logo from 'assets/images/cinemate-logo.png';
 
 function HomePage() {
   useEffect(() => {
@@ -9,8 +11,10 @@ function HomePage() {
   }, []);
 
   return (
-    <div className='app-container flex flex-col min-h-screen bg-primary-background text-primary-text'>
-      <header className='header-container h-20 bg-elevation-2 fixed top-0 right-0 left-0'>
+    <div
+      className={`${s['main-wrapper']} flex flex-col min-h-screen text-primary-text`}
+    >
+      <header className='header-wrapper h-20 bg-elevation-2 fixed top-0 right-0 left-0'>
         <div className='container h-full px-5 mx-auto flex items-center'>
           <div className='header-brand'>
             <img src={app_logo} alt='Cinemate Logo' />
