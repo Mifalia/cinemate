@@ -30,10 +30,7 @@ function HomePage() {
           });
         }
       } else if (currentScrollTop < lastScrollTop) {
-        if (
-          window.scrollY.valueOf() > 72 &&
-          window.scrollY.valueOf() < viewportHeight
-        ) {
+        if (window.scrollY.valueOf() < 80) {
           window.scrollTo({
             top: 0,
             behavior: 'smooth',
