@@ -11,15 +11,48 @@ import app_logo from 'assets/images/cinemate-logo.png';
 function HomePage() {
   useEffect(() => {
     document.title = 'Welcome To Cinemate';
+    // homepage scroll behavior handling
+    var lastScrollTop = 0;
+    var viewportHeight = window.innerHeight;
+    window.addEventListener('scroll', function () {
+      var currentScrollTop =
+        window.scrollY || document.documentElement.scrollTop;
 
+      if (currentScrollTop > lastScrollTop) {
+        // L'utilisateur fait défiler vers le bas
+        if (
+          window.scrollY.valueOf() > 72 &&
+          window.scrollY.valueOf() < viewportHeight
+        ) {
+          window.scrollTo({
+            top: viewportHeight,
+            behavior: 'smooth',
+          });
+        }
+      } else if (currentScrollTop < lastScrollTop) {
+        if (
+          window.scrollY.valueOf() > 72 &&
+          window.scrollY.valueOf() < viewportHeight
+        ) {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        }
+      }
+
+      // Mettez à jour la position précédente du défilement
+      lastScrollTop = currentScrollTop;
+    });
+
+    // header appearance and behavior handling
     let header = document.getElementById('app_header');
-
     window.addEventListener('scroll', () => {
-      if (window.scrollY.valueOf() > 16) {
+      if (window.scrollY.valueOf() > viewportHeight) {
         header.classList.remove('fixed', 'bg-transparent');
-        header.classList.add('sticky', 'bg-elevation-2');
+        header.classList.add('sticky', 'bg-elevation-2', 'opacity-90');
       } else {
-        header.classList.remove('sticky', 'bg-elevation-2');
+        header.classList.remove('sticky', 'bg-elevation-2', 'opacity-90');
         header.classList.add('fixed', 'bg-transparent');
       }
     });
@@ -58,8 +91,8 @@ function HomePage() {
           <p className='section-description text-6xl font-bold mb-6 capitalize'>
             explore the world of TV Shows & more
           </p>
-          <p className='mb-12'>
-            <Link className={`underline text-base`}>
+          <p className={`${s['body-link-wrapper']} mb-12 w-fit`}>
+            <Link className={`underline text-base leading-loose`}>
               Learn more about us
               <IoMdArrowForward size={16} className='ml-2 inline-block' />
             </Link>
@@ -70,12 +103,24 @@ function HomePage() {
           </button>
         </div>
       </section>
+      <section className='w-full bg-primary-background py-14'>
+        <div className='container mx-auto'>
+          <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
+            You may like ...
+          </h2>
+          <div className='grid grid-cols-5 gap-6'>
+            <div className='h-40'>hello</div>
+          </div>
+        </div>
+      </section>
       <footer className='h-min py-6 mt-auto text-center bg-elevation-2'>
         <div className='container mx-auto'>
           © Copyright 2023 -{' '}
           <a
             className='text-primary text-sm hover:underline'
             href='https://github.com/Mifalia'
+            target='_blank'
+            rel='noreferrer'
           >
             Mifalia Nathanaël
           </a>{' '}

@@ -1,3 +1,12 @@
-body {
+html {
   @apply bg-primary-background;
+}
+
+button,
+a {
+  transition: all 0.25s;
+}
+
+a:hover {
+  color: var(--primary);
 }
