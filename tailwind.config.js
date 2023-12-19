@@ -8,8 +8,12 @@ module.exports = {
         'secondary-text': 'var(--secondary-text)',
         'primary-background': 'var(--primary-background)',
         'elevation-1': 'var(--elevation-1)',
-        'elevaton-2': 'var(--elevation-2)',
+        'elevation-2': 'var(--elevation-2)',
         primary: 'var(--primary)',
+      },
+      fontFamily: {
+        serif: 'CabinetGrotesk',
+        sans: 'Outfit',
       },
     },
   },

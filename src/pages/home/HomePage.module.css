@@ -1,0 +1,22 @@
+.main-wrapper {
+  background: linear-gradient(to right, #202020, rgba(0, 0, 0, 0.55)),
+    url('../../assets/images/main-bg.png') no-repeat top center;
+  background-size: 100vw;
+  backdrop-filter: blur(10px);
+}
+
+.header-wrapper {
+  backdrop-filter: blur(48px);
+}
+
+.hero {
+  backdrop-filter: blur(2px);
+}
+
+.body-link-wrapper {
+  transition: transform 0.25s ease-out;
+}
+
+.body-link-wrapper:hover {
+  transform: translateX(16px);
+}
