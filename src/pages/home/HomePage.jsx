@@ -37,7 +37,6 @@ function HomePage() {
           });
         }
       }
-
       // Mettez à jour la position précédente du défilement
       lastScrollTop = currentScrollTop;
     });
@@ -100,16 +99,37 @@ function HomePage() {
           </button>
         </div>
       </section>
+
       <section className='w-full bg-primary-background py-14'>
         <div className='container mx-auto'>
           <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
             You may like ...
           </h2>
           <div className='grid grid-cols-5 gap-6'>
-            <div className='h-40'>hello</div>
+            {/* component */}
+            <div className='flex flex-col items-center bg-elevation-1 p-3 pb-4 rounded-2xl cursor-pointer hover:bg-elevation-2'>
+              <img
+                src='https://image.tmdb.org/t/p/original/eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
+                alt='poster'
+                className='mb-4 rounded w-full'
+              />
+              <div
+                className={`${s['details-text-box']} w-full flex justify-between items-baseline gap-2`}
+              >
+                <span className='flex-1 text-base capitalize font-medium block text-ellipsis overflow-hidden whitespace-nowrap'>
+                  Title of the show very very long beeeee
+                </span>
+                <span className='w-fit font-normal text-primary text-xs px-2 py-1 border-2 border-primary'>
+                  2004
+                </span>
+              </div>
+            </div>
+            {/* component */}
           </div>
         </div>
       </section>
+
+      {/* footer */}
       <footer className='h-min py-6 mt-auto text-center bg-elevation-2'>
         <div className='container mx-auto'>
           © Copyright 2023 -{' '}
