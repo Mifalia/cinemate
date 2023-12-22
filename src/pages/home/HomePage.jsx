@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { RiSearchLine } from 'react-icons/ri';
 import { IoMdArrowForward } from 'react-icons/io';
-
 // assets import
 import s from './HomePage.module.css';
+// component imports
 import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 function HomePage() {
   useEffect(() => {
@@ -36,8 +37,7 @@ function HomePage() {
           });
         }
       }
-      // Mettez à jour la position précédente du défilement
-      lastScrollTop = currentScrollTop;
+      lastScrollTop = currentScrollTop; // Mettez à jour la position précédente du défilement
     });
   }, []);
 
@@ -99,20 +99,7 @@ function HomePage() {
       </section>
 
       {/* footer */}
-      <footer className='h-min py-6 mt-auto text-center bg-elevation-2'>
-        <div className='container mx-auto'>
-          © Copyright 2023 -{' '}
-          <a
-            className='text-primary text-sm hover:underline'
-            href='https://github.com/Mifalia'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Mifalia Nathanaël
-          </a>{' '}
-          | All rights reserved
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
