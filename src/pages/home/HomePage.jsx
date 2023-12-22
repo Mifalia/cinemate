@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { RiSearchLine } from 'react-icons/ri';
 import { IoMdArrowForward } from 'react-icons/io';
-import { AiFillGithub } from 'react-icons/ai';
-
 // assets import
 import s from './HomePage.module.css';
-import app_logo from 'assets/images/cinemate-logo.png';
+// component imports
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 
 function HomePage() {
   useEffect(() => {
@@ -37,21 +37,7 @@ function HomePage() {
           });
         }
       }
-
-      // Mettez à jour la position précédente du défilement
-      lastScrollTop = currentScrollTop;
-    });
-
-    // header appearance and behavior handling
-    let header = document.getElementById('app_header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY.valueOf() > viewportHeight) {
-        header.classList.remove('fixed', 'bg-transparent');
-        header.classList.add('sticky', 'bg-elevation-2', 'opacity-90');
-      } else {
-        header.classList.remove('sticky', 'bg-elevation-2', 'opacity-90');
-        header.classList.add('fixed', 'bg-transparent');
-      }
+      lastScrollTop = currentScrollTop; // Mettez à jour la position précédente du défilement
     });
   }, []);
 
@@ -59,25 +45,7 @@ function HomePage() {
     <div
       className={`${s['main-wrapper']} flex flex-col min-h-screen text-primary-text`}
     >
-      <header
-        id='app_header'
-        className={`${s['header-wrapper']} h-20 fixed top-0 right-0 left-0 z-10`}
-      >
-        <div className='container h-full px-5 mx-auto flex items-center'>
-          <div className='header-brand'>
-            <img src={app_logo} alt='Cinemate Logo' />
-          </div>
-          <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium'>
-            <Link to='/'>Home</Link>
-            <Link to='/'>Search</Link>
-            <Link to='/'>Discover</Link>
-            <Link to='/'>About</Link>|
-            <a href='https://github.com/Mifalia/cinemate'>
-              <AiFillGithub size={24} />
-            </a>
-          </nav>
-        </div>
-      </header>
+      <Header />
       <section
         className={`${s['hero']} container mx-auto px-5 min-h-screen py-24 flex flex-col justify-center`}
       >
@@ -100,30 +68,38 @@ function HomePage() {
           </button>
         </div>
       </section>
+
       <section className='w-full bg-primary-background py-14'>
         <div className='container mx-auto'>
           <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
             You may like ...
           </h2>
           <div className='grid grid-cols-5 gap-6'>
-            <div className='h-40'>hello</div>
+            {/* component */}
+            <div className='flex flex-col items-center bg-elevation-1 p-3 pb-4 rounded-2xl cursor-pointer hover:bg-elevation-2'>
+              <img
+                src='https://image.tmdb.org/t/p/original/eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
+                alt='poster'
+                className='mb-4 rounded w-full'
+              />
+              <div
+                className={`${s['details-text-box']} w-full flex justify-between items-baseline gap-2`}
+              >
+                <span className='flex-1 text-base capitalize font-medium block text-ellipsis overflow-hidden whitespace-nowrap'>
+                  Title of the show very very long beeeee
+                </span>
+                <span className='w-fit font-normal text-primary text-xs px-2 py-1 border-2 border-primary'>
+                  2004
+                </span>
+              </div>
+            </div>
+            {/* component */}
           </div>
         </div>
       </section>
-      <footer className='h-min py-6 mt-auto text-center bg-elevation-2'>
-        <div className='container mx-auto'>
-          © Copyright 2023 -{' '}
-          <a
-            className='text-primary text-sm hover:underline'
-            href='https://github.com/Mifalia'
-            target='_blank'
-            rel='noreferrer'
-          >
-            Mifalia Nathanaël
-          </a>{' '}
-          | All rights reserved
-        </div>
-      </footer>
+
+      {/* footer */}
+      <Footer />
     </div>
   );
 }

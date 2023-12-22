@@ -5,10 +5,6 @@
   backdrop-filter: blur(10px);
 }
 
-.header-wrapper {
-  backdrop-filter: blur(48px);
-}
-
 .hero {
   backdrop-filter: blur(2px);
 }
