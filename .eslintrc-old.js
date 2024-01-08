@@ -19,7 +19,8 @@ module.exports = {
     },
   },
   rules: {
-    // Vos règles spécifiques ici
-    'react/prop-types': 'off',
+    // ... (your existing rules)
+
+    'react/prop-types': 'error', // Add this line to enforce prop type validation
   },
 };

@@ -1,0 +1,42 @@
+.wrapper {
+  @apply flex 
+    flex-col 
+    items-center 
+    bg-elevation-1 
+    p-3 pb-4 
+    rounded-2xl 
+    cursor-pointer 
+    hover:bg-elevation-2;
+}
+
+.details-text-box {
+  @apply w-full 
+    flex 
+    justify-between 
+    items-baseline 
+    gap-2;
+}
+
+.thumbnail {
+  @apply w-full mb-4 rounded;
+}
+
+.title {
+  @apply block 
+    flex-1 
+    text-base 
+    capitalize 
+    font-medium 
+    text-ellipsis 
+    overflow-hidden 
+    whitespace-nowrap;
+}
+
+.year {
+  @apply w-fit 
+    font-normal 
+    text-primary 
+    text-xs px-2 
+    py-1 border-2 
+    border-primary;
+}
