@@ -33,6 +33,10 @@ a {
   transition: all 0.25s;
 }
 
+a {
+  color: var(--primary-text);
+}
+
 a:hover {
   color: var(--primary);
 }

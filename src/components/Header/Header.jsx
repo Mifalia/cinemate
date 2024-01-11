@@ -40,27 +40,26 @@ function Header() {
 
     // header appearance and behavior handling
     let header = document.getElementById('app_header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY.valueOf() > viewportHeight) {
-        header.classList.remove('fixed', 'bg-transparent');
-        header.classList.add('sticky', 'bg-elevation-2', 'opacity-90');
-      } else {
-        header.classList.remove('sticky', 'bg-elevation-2', 'opacity-90');
-        header.classList.add('fixed', 'bg-transparent');
-      }
-    });
+    // window.addEventListener('scroll', () => {
+    //   if (window.scrollY.valueOf() > viewportHeight) {
+    //     header.classList.remove('fixed', 'bg-transparent');
+    //     header.classList.add('sticky', 'bg-elevation-2', 'opacity-90');
+    //   } else {
+    //     header.classList.remove('sticky', 'bg-elevation-2', 'opacity-90');
+    //     header.classList.add('fixed', 'bg-transparent');
+    //   }
+    // });
   }, []);
 
   return (
     <header
       id='app_header'
-      className={`${s['header-wrapper']} h-20 fixed top-0 right-0 left-0 z-10`}
-    >
+      className={`${s['header-wrapper']} bg-gray-50 bg-opacity-10 py-5 fixed top-0 right-0 left-0 z-10`}>
       <div className='container h-full px-5 mx-auto flex items-center'>
         <div className='header-brand'>
           <img src={app_logo} alt='Cinemate Logo' />
         </div>
-        <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium'>
+        <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium text-primary-text'>
           <Link to='/'>Home</Link>
           <Link to='/'>Search</Link>
           <Link to='/'>Discover</Link>

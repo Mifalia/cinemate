@@ -43,51 +43,54 @@ function HomePage() {
   }, []);
 
   return (
-    <div
-      className={`${s['main-wrapper']} flex flex-col h-[calc(100vh-48px)] text-primary-text`}>
-      <Header />
-      <section
-        className={`${s['hero']} container mx-auto px-5 min-h-full py-24 flex flex-col justify-center`}>
-        <div className='w-1/2'>
-          <h1 className='section-title text-3xl font-bold mb-2'>
-            Welcome to <span className='text-primary'>Cinemate</span>
-          </h1>
-          <p className='section-description text-6xl font-bold mb-6 capitalize'>
-            explore the world of TV Shows & more
-          </p>
-          <p className={`${s['body-link-wrapper']} mb-12 w-fit`}>
-            <Link className={`underline text-base leading-loose`}>
-              Learn more about us
-              <IoMdArrowForward size={16} className='ml-2 inline-block' />
-            </Link>
-          </p>
-          <button className='rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'>
-            <RiSearchLine size={18} />
-            Start exploring
-          </button>
+    <>
+      <div className={`flex flex-col text-primary-text`}>
+        <Header />
+        <div className={`${s['main-wrapper']}`}>
+          <section
+            className={`${s['hero']} container mx-auto px-5 h-[calc(100vh-48px)] py-24 flex flex-col justify-center`}>
+            <div className='w-1/2'>
+              <h1 className='section-title text-3xl font-bold mb-2'>
+                Welcome to <span className='text-primary'>Cinemate</span>
+              </h1>
+              <p className='section-description text-6xl font-bold mb-6 capitalize'>
+                explore the world of TV Shows & more
+              </p>
+              <p className={`${s['body-link-wrapper']} mb-12 w-fit`}>
+                <Link className={`underline text-base leading-loose`}>
+                  Learn more about us
+                  <IoMdArrowForward size={16} className='ml-2 inline-block' />
+                </Link>
+              </p>
+              <button className='rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'>
+                <RiSearchLine size={18} />
+                Start exploring
+              </button>
+            </div>
+          </section>
         </div>
-      </section>
 
-      <section className='w-full bg-primary-background py-14'>
-        <div className='container mx-auto'>
-          <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
-            You may like ...
-          </h2>
-          <div className='grid grid-cols-5 gap-6'>
-            {/* component */}
-            <MediaMiniature
-              thumbnail='eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
-              title='The mandalorian with very long title'
-              year='2021'
-            />
-            {/* component */}
+        <section className='w-full bg-primary-background py-14'>
+          <div className='container mx-auto'>
+            <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
+              You may like ...
+            </h2>
+            <div className='grid grid-cols-5 gap-6'>
+              {/* component */}
+              <MediaMiniature
+                thumbnail='eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
+                title='The mandalorian with very long title'
+                year='2021'
+              />
+              {/* component */}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* footer */}
-      <Footer />
-    </div>
+        {/* footer */}
+        <Footer />
+      </div>
+    </>
   );
 }
 

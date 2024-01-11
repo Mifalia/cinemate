@@ -21,5 +21,6 @@ module.exports = {
   rules: {
     // Vos règles spécifiques ici
     'react/prop-types': 'off',
+    'no-unused-vars': 'off',
   },
 };
