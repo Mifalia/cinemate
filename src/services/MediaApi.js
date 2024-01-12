@@ -16,7 +16,12 @@ class MediaApi {
     };
   }
 
-  // fetch methods
+  /*
+    METHODS
+    -- async methods for fetching data on the api
+  */
+
+  // trending TV shows of the moment
   async getTrending() {
     let path = `${this._base_url}tv/week?language=en-US`;
     try {

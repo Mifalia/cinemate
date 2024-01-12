@@ -1,6 +1,9 @@
 import { makeAutoObservable } from 'mobx';
 
 class MediaStore {
+  /*
+    STORE OBSERVABLES
+  */
   _current;
   _trending;
   _searchResults;
@@ -9,6 +12,13 @@ class MediaStore {
     makeAutoObservable(this);
   }
 
+  /*
+    STORE ACTIONS
+  */
+
+  /* 
+    GETTERS AND SETTERS OF THIS.PROPERTIES
+  */
   get current() {
     return this._current;
   }
