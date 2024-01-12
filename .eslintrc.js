@@ -17,6 +17,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    module: 'commonjs',
   },
   rules: {
     // Vos règles spécifiques ici
