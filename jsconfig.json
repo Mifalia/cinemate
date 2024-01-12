@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
     "paths": {
-      "*": ["src/*"]
+      "*": ["*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }
