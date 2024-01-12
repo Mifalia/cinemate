@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx';
 
 class MediaStore {
   _current;
-  _airingToday;
+  _trending;
   _searchResults;
 
   constructor() {
@@ -15,11 +15,11 @@ class MediaStore {
   set current(value) {
     this._current = value;
   }
-  get airingToday() {
-    return this._airingToday;
+  get trending() {
+    return this._trending;
   }
-  set airingToday(value) {
-    this._airingToday = value;
+  set trending(value) {
+    this._trending = value;
   }
   get searchResults() {
     return this._searchResults;
