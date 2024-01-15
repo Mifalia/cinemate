@@ -9,7 +9,7 @@ function SearchPage() {
         {/* searchbar wrapper */}
         <div className='w-full my-8 flex justify-center items-center'>
           <div className='w-1/2'>
-            <SearchBar />
+            <SearchBar placeholder='Example : Moon Knight, Better Call Saul, Rick And Morty ...' />
           </div>
         </div>
         {/*  */}
