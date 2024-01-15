@@ -36,7 +36,7 @@ function HeaderFooterLayout({ children }) {
   return (
     <div className='flex flex-col text-primary-text'>
       <Header />
-      <div className=''>{children}</div>
+      <div className='min-h-[calc(100vh-72px)]'>{children}</div>
       <Footer />
     </div>
   );
