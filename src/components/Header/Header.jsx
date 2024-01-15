@@ -57,7 +57,9 @@ function Header() {
       className={`${s['header-wrapper']} bg-gray-50 bg-opacity-10 py-5 fixed top-0 right-0 left-0 z-10`}>
       <div className='container h-full px-5 mx-auto flex items-center'>
         <div className='header-brand'>
-          <img src={app_logo} alt='Cinemate Logo' />
+          <Link to='/'>
+            <img src={app_logo} alt='Cinemate Logo' />
+          </Link>
         </div>
         <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium text-primary-text'>
           <Link to='/'>Home</Link>

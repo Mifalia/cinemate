@@ -7,7 +7,9 @@ import s from './HomePage.module.css';
 // component imports
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
-import MediaMiniature from 'components/media/MediaMiniature/MediaMiniature';
+import { observer } from 'mobx-react';
+import { MediaStore } from 'store/MediaStore';
+import MediaList from 'components/media/MediaList/MediaList';
 
 function HomePage() {
   useEffect(() => {
@@ -75,15 +77,9 @@ function HomePage() {
             <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
               You may like ...
             </h2>
-            <div className='grid grid-cols-5 gap-6'>
-              {/* component */}
-              <MediaMiniature
-                thumbnail='eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
-                title='The mandalorian with very long title'
-                year='2021'
-              />
-              {/* component */}
-            </div>
+            {!MediaStore.isLoading && (
+              <MediaList mediaList={MediaStore.trending.slice(0, 5)} />
+            )}
           </div>
         </section>
 
@@ -94,4 +90,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default observer(HomePage);
