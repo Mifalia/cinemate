@@ -1,41 +1,66 @@
 import { makeAutoObservable } from 'mobx';
+import MediaApi from 'services/MediaApi';
+
+// api key from .env file
+const API_KEY = process.env.API_KEY;
 
 class MediaStore {
   /*
     STORE OBSERVABLES
   */
-  _current;
-  _trending;
-  _searchResults;
+  current = null;
+  trending = [];
+  popular = [];
+  searchResults = [];
+
+  isLoading = false;
+
+  // store self related properties
+  mediaApi;
 
   constructor() {
+    if (!API_KEY) {
+      console.error("API_KEY can't be null, aborting ...");
+      return;
+    }
+
+    const mediaApi = new MediaApi(API_KEY);
+    this.mediaApi = mediaApi;
+
+    this.load();
+
     makeAutoObservable(this);
   }
 
   /*
-    STORE ACTIONS
+    STORE LOGIC HANDLER METHODS
   */
 
+  async load() {
+    const trending = await this.mediaApi.getTrending();
+    this.trending = trending ? trending.results : [];
+    const popular = await this.mediaApi.getPopular();
+    this.popular = popular ? trending.results : [];
+  }
+
   /* 
-    GETTERS AND SETTERS OF THIS.PROPERTIES
+    SETTERS FOR OBSERVABLES STATES
   */
-  get current() {
-    return this._current;
+
+  setCurrent(value) {
+    this.current = value;
   }
-  set current(value) {
-    this._current = value;
+
+  setTrending(value) {
+    this.trending = value;
   }
-  get trending() {
-    return this._trending;
+
+  setPopular(value) {
+    this.popular = value;
   }
-  set trending(value) {
-    this._trending = value;
-  }
-  get searchResults() {
-    return this._searchResults;
-  }
-  set searchResults(value) {
-    this._searchResults = value;
+
+  setSearchResults(value) {
+    this.searchResults = value;
   }
 }
 
