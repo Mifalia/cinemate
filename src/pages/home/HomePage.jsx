@@ -8,6 +8,8 @@ import s from './HomePage.module.css';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import MediaMiniature from 'components/media/MediaMiniature/MediaMiniature';
+import { observer } from 'mobx-react';
+import { MediaStore } from 'store/MediaStore';
 
 function HomePage() {
   useEffect(() => {
@@ -77,11 +79,17 @@ function HomePage() {
             </h2>
             <div className='grid grid-cols-5 gap-6'>
               {/* component */}
-              <MediaMiniature
-                thumbnail='eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg'
-                title='The mandalorian with very long title'
-                year='2021'
-              />
+              {!MediaStore.isLoading &&
+                MediaStore.trending
+                  .slice(0, 5)
+                  .map((media, index) => (
+                    <MediaMiniature
+                      key={index}
+                      thumbnail={media.poster_path}
+                      title={media.original_name}
+                      year={new Date(media.first_air_date).getFullYear()}
+                    />
+                  ))}
               {/* component */}
             </div>
           </div>
@@ -94,4 +102,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default observer(HomePage);
