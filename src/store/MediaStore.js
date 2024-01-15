@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx';
 import MediaApi from 'services/MediaApi';
 
 // api key from .env file
-const API_KEY = process.env.API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class MediaStore {
   /*
@@ -20,6 +20,7 @@ class MediaStore {
 
   constructor() {
     if (!API_KEY) {
+      console.log(process.env.API_KEY);
       console.error("API_KEY can't be null, aborting ...");
       return;
     }
@@ -37,10 +38,12 @@ class MediaStore {
   */
 
   async load() {
+    this.setIsLoading(true);
     const trending = await this.mediaApi.getTrending();
     this.trending = trending ? trending.results : [];
     const popular = await this.mediaApi.getPopular();
     this.popular = popular ? trending.results : [];
+    this.setIsLoading(false);
   }
 
   /* 
@@ -61,6 +64,10 @@ class MediaStore {
 
   setSearchResults(value) {
     this.searchResults = value;
+  }
+
+  setIsLoading(value) {
+    this.isLoading = value;
   }
 }
 
