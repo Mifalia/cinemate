@@ -64,8 +64,10 @@ class MediaStore {
     }
 
     this.setSearchResults([]);
-    const results = await this.mediaApi.search(q);
+    const results = await this.mediaApi.search(encodeURIComponent(q));
     this.searchResults = results ? results.results : [];
+
+    this.setLastSearchQuery(q);
 
     this.setIsLoading(false);
   };
