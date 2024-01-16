@@ -13,6 +13,8 @@ class MediaStore {
   popular = [];
   searchResults = [];
 
+  lastSearchQuery = '';
+
   isLoading = false;
 
   // store self related properties
@@ -37,14 +39,36 @@ class MediaStore {
     STORE LOGIC HANDLER METHODS
   */
 
+  // --- load popular and trending
   async load() {
     this.setIsLoading(true);
     const trending = await this.mediaApi.getTrending();
     this.trending = trending ? trending.results : [];
     const popular = await this.mediaApi.getPopular();
-    this.popular = popular ? trending.results : [];
+    this.popular = popular ? popular.results : [];
     this.setIsLoading(false);
   }
+
+  // --- search
+  search = async (q = '') => {
+    this.setIsLoading(true);
+
+    q = q.trim().toLowerCase();
+
+    if (q === '') {
+      return;
+    }
+
+    if (q === this.lastSearchQuery) {
+      return;
+    }
+
+    this.setSearchResults([]);
+    const results = await this.mediaApi.search(q);
+    this.searchResults = results ? results.results : [];
+
+    this.setIsLoading(false);
+  };
 
   /* 
     SETTERS FOR OBSERVABLES STATES
@@ -68,6 +92,10 @@ class MediaStore {
 
   setIsLoading(value) {
     this.isLoading = value;
+  }
+
+  setLastSearchQuery(value) {
+    this.lastSearchQuery = value;
   }
 }
 
