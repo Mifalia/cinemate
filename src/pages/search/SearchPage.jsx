@@ -21,6 +21,9 @@ function SearchPage() {
 
     if (query) {
       MediaStore.search(query);
+      document.title = `Results for "${query}"`;
+    } else {
+      document.title = 'Search';
     }
   }, [location.search]);
 
