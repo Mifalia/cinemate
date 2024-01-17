@@ -41,19 +41,20 @@ function SearchPage() {
             />
           </div>
         </div>
-        {MediaStore.isLoading ? (
-          <MediaListSkeleton />
-        ) : MediaStore.searchResults.length > 0 ? (
+        {MediaStore.isLoading && <MediaListSkeleton />}
+
+        {!MediaStore.isLoading && MediaStore.searchResults.length > 0 && (
           <MediaList mediaList={MediaStore.searchResults} />
-        ) : (
-          <div className='h-36 flex flex-col items-center justify-center'>
-            <p className='text-base'>
-              {MediaStore.lastSearchQuery
-                ? `Sorry, no results found for "${MediaStore.lastSearchQuery}"`
-                : 'Find any movie you want'}
-            </p>
-          </div>
         )}
+
+        {!MediaStore.isLoading && MediaStore.searchResults.length == 0 && (
+          <p className='text-base text-center'>
+            {MediaStore.lastSearchQuery
+              ? `Sorry, no results found for "${MediaStore.lastSearchQuery}"`
+              : 'Find any movie you want'}
+          </p>
+        )}
+
         <div>
           <MediaList mediaList={MediaStore.searchResults} />
         </div>
