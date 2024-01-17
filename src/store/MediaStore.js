@@ -41,6 +41,10 @@ class MediaStore {
 
   // --- load popular and trending
   async load() {
+    if (this.trending.length > 0 && this.popular.length > 0) {
+      return;
+    }
+
     this.setIsLoading(true);
     const trending = await this.mediaApi.getTrending();
     this.trending = trending ? trending.results : [];
@@ -63,11 +67,11 @@ class MediaStore {
       return;
     }
 
+    this.setLastSearchQuery(q);
+
     this.setSearchResults([]);
     const results = await this.mediaApi.search(encodeURIComponent(q));
     this.searchResults = results ? results.results : [];
-
-    this.setLastSearchQuery(q);
 
     this.setIsLoading(false);
   };
