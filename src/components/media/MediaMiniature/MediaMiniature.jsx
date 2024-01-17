@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import defaultThumbnail from 'assets/images/default-media-thumbnail.png';
 import MediaMiniatureSkeleton from 'components/skeletons/MediaMiniatureSkeleton';
+import defaultThumbnail from 'assets/images/default-media-thumbnail.png';
 
 function MediaMiniature({ thumbnail = '', title = '', year = '' }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);

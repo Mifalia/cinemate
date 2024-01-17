@@ -1,11 +1,13 @@
+// module imports
 import React, { useEffect } from 'react';
-import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
-import SearchBar from 'components/SearchBar/SearchBar';
-import { MediaStore } from 'store/MediaStore';
-import MediaList from 'components/media/MediaList/MediaList';
-import { observer } from 'mobx-react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import MediaMiniatureSkeleton from 'components/skeletons/MediaMiniatureSkeleton';
+import { observer } from 'mobx-react';
+// services & utils & assets import
+import { MediaStore } from 'store/MediaStore';
+// components imports
+import SearchBar from 'components/SearchBar/SearchBar';
+import MediaList from 'components/media/MediaList/MediaList';
+import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 
 function SearchPage() {
@@ -13,8 +15,7 @@ function SearchPage() {
   const location = useLocation();
 
   const handleSearch = (q) => {
-    let query = encodeURI(q);
-    navigate(`/search?q=${query}`);
+    navigate(`/search?q=${encodeURIComponent(q)}`);
   };
 
   useEffect(() => {

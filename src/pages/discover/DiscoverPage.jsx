@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
+// services & utils imports
 import { MediaStore } from 'store/MediaStore';
+// components imports
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 import MediaList from 'components/media/MediaList/MediaList';
 
 function DiscoverPage() {
+  useEffect(() => {
+    document.title = 'Discover';
+  }, []);
+
   return (
     <HeaderFooterLayout>
       <div className='container mx-auto px-4 pt-24 pb-10 text-primary-text'>
         {/* trending */}
-        <h1 className='capitalize text-left text-4xl font-bold font-sans mt-16 mb-9'>
+        <h1 className='uppercase text-center text-3xl font-bold font-sans mt-6 mb-10'>
           Popular TV shows of the week
         </h1>
         {MediaStore.isLoading ? (
@@ -20,7 +26,7 @@ function DiscoverPage() {
         )}
         {/* popular */}
 
-        <h1 className='capitalize text-left text-4xl font-bold font-sans mt-16 mb-9'>
+        <h1 className='uppercase text-center text-3xl font-bold font-sans mt-14 mb-10'>
           All time popular
         </h1>
         {MediaStore.isLoading ? (
