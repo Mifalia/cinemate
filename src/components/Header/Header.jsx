@@ -63,7 +63,7 @@ function Header() {
         </div>
         <nav className='header-nav ml-auto flex justify-end gap-x-6 uppercase font-medium text-primary-text'>
           <Link to='/'>Home</Link>
-          <Link to='/'>Search</Link>
+          <Link to='/search'>Search</Link>
           <Link to='/'>Discover</Link>
           <Link to='/'>About</Link>|
           <a href='https://github.com/Mifalia/cinemate'>

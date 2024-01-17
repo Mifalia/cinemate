@@ -9,8 +9,11 @@ function MediaList({ mediaList = [] }) {
         <Link to='' key={index}>
           <MediaMiniature
             thumbnail={media.poster_path}
-            title={media.original_name}
-            year={new Date(media.first_air_date).getFullYear()}
+            title={media.name}
+            year={
+              media.first_air_date &&
+              new Date(media.first_air_date).getFullYear()
+            }
           />
         </Link>
       ))}
