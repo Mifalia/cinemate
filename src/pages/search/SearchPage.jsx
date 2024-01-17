@@ -54,10 +54,6 @@ function SearchPage() {
               : 'Find any movie you want'}
           </p>
         )}
-
-        <div>
-          <MediaList mediaList={MediaStore.searchResults} />
-        </div>
       </div>
     </HeaderFooterLayout>
   );

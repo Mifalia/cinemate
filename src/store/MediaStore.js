@@ -71,7 +71,19 @@ class MediaStore {
 
     this.setSearchResults([]);
     const results = await this.mediaApi.search(encodeURIComponent(q));
-    this.searchResults = results ? results.results : [];
+    let filteredResults = [];
+    if (results) {
+      filteredResults = results.results.filter((item) => {
+        const keepItem =
+          item.overview &&
+          item.origin_country.length > 0 &&
+          item.backdrop_path &&
+          item.poster_path;
+        return keepItem;
+      });
+    }
+
+    this.setSearchResults(filteredResults);
 
     this.setIsLoading(false);
   };
