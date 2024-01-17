@@ -5,6 +5,8 @@ import { MediaStore } from 'store/MediaStore';
 import MediaList from 'components/media/MediaList/MediaList';
 import { observer } from 'mobx-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import MediaMiniatureSkeleton from 'components/skeletons/MediaMiniatureSkeleton';
+import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 
 function SearchPage() {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ function SearchPage() {
 
   return (
     <HeaderFooterLayout>
-      <div className='container mx-auto py-20'>
+      <div className='container mx-auto py-20 px-4'>
         {/* searchbar wrapper */}
         <div className='w-full my-8 flex justify-center items-center'>
           <div className='w-1/2'>
@@ -39,7 +41,19 @@ function SearchPage() {
             />
           </div>
         </div>
-        {/*  */}
+        {MediaStore.isLoading ? (
+          <MediaListSkeleton />
+        ) : MediaStore.searchResults.length > 0 ? (
+          <MediaList mediaList={MediaStore.searchResults} />
+        ) : (
+          <div className='h-36 flex flex-col items-center justify-center'>
+            <p className='text-base'>
+              {MediaStore.lastSearchQuery
+                ? `Sorry, no results found for "${MediaStore.lastSearchQuery}"`
+                : 'Find any movie you want'}
+            </p>
+          </div>
+        )}
         <div>
           <MediaList mediaList={MediaStore.searchResults} />
         </div>
