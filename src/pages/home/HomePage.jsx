@@ -9,6 +9,7 @@ import { observer } from 'mobx-react';
 import { MediaStore } from 'store/MediaStore';
 import MediaList from 'components/media/MediaList/MediaList';
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
+import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 
 function HomePage() {
   useEffect(() => {
@@ -46,7 +47,9 @@ function HomePage() {
           <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
             You may like ...
           </h2>
-          {!MediaStore.isLoading && (
+          {MediaStore.isLoading ? (
+            <MediaListSkeleton />
+          ) : (
             <MediaList mediaList={MediaStore.trending.slice(0, 5)} />
           )}
         </div>
