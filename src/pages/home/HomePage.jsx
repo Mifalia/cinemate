@@ -1,17 +1,20 @@
+// module imports
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { observer } from 'mobx-react';
 import { RiSearchLine } from 'react-icons/ri';
 import { IoMdArrowForward } from 'react-icons/io';
 // assets import
 import s from './HomePage.module.css';
 // component imports
-import { observer } from 'mobx-react';
 import { MediaStore } from 'store/MediaStore';
 import MediaList from 'components/media/MediaList/MediaList';
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 
 function HomePage() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = 'Welcome To Cinemate';
   }, []);
@@ -34,7 +37,9 @@ function HomePage() {
                 <IoMdArrowForward size={16} className='ml-2 inline-block' />
               </Link>
             </p>
-            <button className='rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'>
+            <button
+              className='rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'
+              onClick={() => navigate('/discover')}>
               <RiSearchLine size={18} />
               Start exploring
             </button>
