@@ -65,7 +65,7 @@ function Header() {
           <Link to='/'>Home</Link>
           <Link to='/search'>Search</Link>
           <Link to='/discover'>Discover</Link>
-          <Link to='/'>About</Link>|
+          <Link to='/about'>About</Link>|
           <a href='https://github.com/Mifalia/cinemate'>
             <AiFillGithub size={24} />
           </a>
