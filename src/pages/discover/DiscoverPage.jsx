@@ -16,9 +16,9 @@ function DiscoverPage() {
     <HeaderFooterLayout>
       <div className='container mx-auto px-4 pt-24 pb-10 text-primary-text'>
         {/* trending */}
-        <h1 className='uppercase text-center text-3xl font-bold font-sans mt-6 mb-10'>
-          Popular TV shows of the week
-        </h1>
+        <h2 className='uppercase text-center text-3xl font-bold font-sans mt-6 mb-10'>
+          Popular this week
+        </h2>
         {MediaStore.isLoading ? (
           <MediaListSkeleton />
         ) : (
@@ -26,9 +26,9 @@ function DiscoverPage() {
         )}
         {/* popular */}
 
-        <h1 className='uppercase text-center text-3xl font-bold font-sans mt-14 mb-10'>
+        <h2 className='uppercase text-center text-3xl font-bold font-sans mt-14 mb-10'>
           All time popular
-        </h1>
+        </h2>
         {MediaStore.isLoading ? (
           <MediaListSkeleton />
         ) : (
