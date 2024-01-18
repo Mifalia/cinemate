@@ -25,13 +25,13 @@ function HomePage() {
         <section
           className={`${s['hero']} container mx-auto px-5 h-[calc(100vh-48px)] py-24 flex flex-col justify-center`}>
           <div className='w-1/2'>
-            <h1 className='section-title text-3xl font-bold mb-2'>
+            <h1 className='section-title text-3xl font-bold font-sans mb-2'>
               Welcome to <span className='text-primary'>Cinemate</span>
             </h1>
-            <p className='section-description text-6xl font-bold mb-6 capitalize'>
+            <p className='section-description text-6xl font-bold font-sans mb-6 capitalize'>
               explore the world of TV Shows & more
             </p>
-            <p className={`${s['body-link-wrapper']} mb-12 w-fit`}>
+            <p className={`${s['body-link-wrapper']} mb-12 w-fit font-sans`}>
               <Link className={`underline text-base leading-loose`}>
                 Learn more about us
                 <IoMdArrowForward size={16} className='ml-2 inline-block' />

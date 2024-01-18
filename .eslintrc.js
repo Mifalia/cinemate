@@ -23,5 +23,6 @@ module.exports = {
     // Vos règles spécifiques ici
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
+    'react/no-unescaped-entities': 'off',
   },
 };
