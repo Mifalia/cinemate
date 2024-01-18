@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // components import
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
@@ -7,9 +7,13 @@ import RepositoryLogo from 'assets/images/github-logo.png';
 import ApiLogo from 'assets/images/tmdb-logo.svg';
 
 function AboutPage() {
+  useEffect(() => {
+    document.title = 'About us';
+  }, []);
+
   return (
     <HeaderFooterLayout>
-      <div className='pt-24 pb-12 container mx-auto px-4 text-primary-text'>
+      <div className='pt-24 pb-12 container mx-auto px-4 text-primary-text text-justify'>
         <h1 className='font-bold text-4xl uppercase text-center my-4'>
           About <span className='text-primary'>Cinemate</span>
         </h1>
