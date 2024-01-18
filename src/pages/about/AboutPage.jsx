@@ -9,7 +9,7 @@ import ApiLogo from 'assets/images/tmdb-logo.svg';
 function AboutPage() {
   return (
     <HeaderFooterLayout>
-      <div className='pt-24 pb-12 container mx-auto px-4 text-primary-text'>
+      <div className='pt-24 pb-12 container mx-auto px-4 text-primary-text text-justify'>
         <h1 className='font-bold text-4xl uppercase text-center my-4'>
           About <span className='text-primary'>Cinemate</span>
         </h1>
