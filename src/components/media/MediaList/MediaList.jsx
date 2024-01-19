@@ -6,7 +6,7 @@ function MediaList({ mediaList = [] }) {
   return (
     <div className='grid grid-cols-5 gap-6'>
       {mediaList.map((media, index) => (
-        <Link to='' key={index}>
+        <Link to={`/details/${media.id}`} key={index}>
           <MediaMiniature
             thumbnail={media.poster_path}
             title={media.name}
