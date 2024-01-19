@@ -55,17 +55,20 @@ class MediaStore {
 
   // --- search
   search = async (q = '') => {
-    this.setIsLoading(true);
-
     q = q.trim().toLowerCase();
+
+    console.log(q);
+    console.log(this.lastSearchQuery);
 
     if (q === '') {
       return;
     }
 
-    if (q === this.lastSearchQuery) {
+    if (q == this.lastSearchQuery) {
       return;
     }
+
+    this.setIsLoading(true);
 
     this.setLastSearchQuery(q);
 
@@ -74,16 +77,28 @@ class MediaStore {
     let filteredResults = [];
     if (results) {
       filteredResults = results.results.filter((item) => {
-        const keepItem =
-          item.overview &&
-          item.origin_country.length > 0 &&
-          item.backdrop_path &&
-          item.poster_path;
+        const keepItem = item.overview && item.origin_country.length > 0 && item.backdrop_path && item.poster_path;
         return keepItem;
       });
     }
 
     this.setSearchResults(filteredResults);
+
+    this.setIsLoading(false);
+  };
+
+  // -- get a tv show by id
+  getOne = async (id) => {
+    id = id.trim();
+    if (this.current && this.current.id == id) return;
+    if (!id) return;
+    this.setCurrent({});
+    this.setIsLoading(true);
+    const results = await this.mediaApi.getById(id);
+
+    if (results.success !== undefined && results.success == false) return;
+
+    this.current = results ? results : {};
 
     this.setIsLoading(false);
   };
