@@ -37,7 +37,7 @@ function AboutPage() {
           Our goal is to enhance your TV-watching experience by making it easier for you to find information about your
           favorite shows and discover hidden gems in the vast landscape of television content.
         </p>
-        <h2 className='text-left font-bold text-2xl capitalize mt-6 mb-2'>User-flriendly interface</h2>
+        <h2 className='text-left font-bold text-2xl capitalize mt-6 mb-2'>User-friendly interface</h2>
         <p>
           We understand the importance of simplicity and efficiency. Cinemate boasts a user-friendly interface that
           ensures a smooth and enjoyable browsing experience. Whether you're a seasoned TV aficionado or a casual

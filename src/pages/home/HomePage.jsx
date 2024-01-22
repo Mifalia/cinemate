@@ -32,7 +32,7 @@ function HomePage() {
               explore the world of TV Shows & more
             </p>
             <p className={`${s['body-link-wrapper']} mb-12 w-fit font-sans`}>
-              <Link className={`underline text-base leading-loose`}>
+              <Link className={`underline text-base leading-loose`} to='/about'>
                 Learn more about us
                 <IoMdArrowForward size={16} className='ml-2 inline-block' />
               </Link>
@@ -49,14 +49,8 @@ function HomePage() {
 
       <section className='w-full bg-primary-background py-14'>
         <div className='container mx-auto'>
-          <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>
-            You may like ...
-          </h2>
-          {MediaStore.isLoading ? (
-            <MediaListSkeleton />
-          ) : (
-            <MediaList mediaList={MediaStore.trending.slice(0, 5)} />
-          )}
+          <h2 className='capitalize  text-center text-3xl font-bold font-sans mb-9'>You may like ...</h2>
+          {MediaStore.isLoading ? <MediaListSkeleton /> : <MediaList mediaList={MediaStore.trending.slice(0, 5)} />}
         </div>
       </section>
     </HeaderFooterLayout>
