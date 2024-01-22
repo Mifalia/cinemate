@@ -26,7 +26,13 @@ function DetailsPage() {
       {!MediaStore.isLoading ? (
         MediaStore.current && (
           <>
-            <div className='pt-24 min-h-[calc(100vh-72px)] pb-10 text-primary-text'>
+            <div
+              className='pt-24 min-h-[calc(100vh-72px)] pb-10 text-primary-text'
+              style={{
+                background: MediaStore.current.backdrop_path
+                  ? `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.75)), url("https://image.tmdb.org/t/p/original${MediaStore.current.backdrop_path}") no-repeat center / cover`
+                  : 'black',
+              }}>
               <section className='container mx-auto h-full px-4'>
                 {/* padded content */}
                 <div className='w-2/3 mt-14'>
@@ -80,18 +86,20 @@ function DetailsPage() {
                 {/* seasons details */}
                 <div className='mt-8'>
                   <h3 className='text-2xl font-bold'>
-                    Has {MediaStore.current.number_of_episodes && MediaStore.current.number_of_episodes} episodes for{' '}
-                    {MediaStore.current.number_of_seasons && MediaStore.current.number_of_seasons} seasons
+                    Has {MediaStore.current.number_of_episodes && MediaStore.current.number_of_episodes} episode(s) for{' '}
+                    {MediaStore.current.number_of_seasons && MediaStore.current.number_of_seasons} season(s)
                   </h3>
                   <div className='mt-2'>
                     {/* season list */}
-                    <div className='flex flex-row flex-nowrap py-2 gap-3 overflow-x-scroll'>
+                    <div className='flex flex-row flex-nowrap py-2 gap-3 overflow-x-hidden hover:overflow-x-scroll'>
                       {/* season card details */}
                       {MediaStore.current.seasons &&
                         MediaStore.current.seasons.map((season, index) => {
                           if (!season.season_number == 0) {
                             return (
-                              <div key={index} className='p-4 border border-gray-500 rounded w-96 flex-shrink-0'>
+                              <div
+                                key={index}
+                                className='p-4 border border-gray-500 rounded w-96 flex-shrink-0 backdrop-blur-sm'>
                                 <div className='flex justify-between'>
                                   <span className='text-primary'>{season.name && season.name}</span>
                                   <span className='text-secondary-text text-xs'>
