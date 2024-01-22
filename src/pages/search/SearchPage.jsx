@@ -13,15 +13,14 @@ import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
 function SearchPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const query = urlParams.get('q');
 
   const handleSearch = (q) => {
     navigate(`/search?q=${encodeURIComponent(q)}`);
   };
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(location.search);
-    const query = urlParams.get('q');
-
     if (query) {
       MediaStore.search(query);
       document.title = `Results for "${query}"`;
@@ -39,6 +38,7 @@ function SearchPage() {
             <SearchBar
               placeholder='Example : Moon Knight, Better Call Saul, Rick And Morty ...'
               onSubmit={handleSearch}
+              value={query}
             />
           </div>
         </div>
