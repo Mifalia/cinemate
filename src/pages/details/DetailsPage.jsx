@@ -69,8 +69,7 @@ function DetailsPage() {
                         target='_blank'
                         rel='noopener noreferrer'
                         type='button'
-                        className='text-sm rounded-xl border-2 border-primary flex items-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-background hover:text-primary-background bg-primary hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0 font-medium'
-                        onClick={() => {}}>
+                        className='text-sm rounded-xl border-2 border-primary flex items-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-background hover:text-primary-background bg-primary hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0 font-medium'>
                         <IoIosLink size={16} />
                         View on website
                       </a>
@@ -118,29 +117,20 @@ function DetailsPage() {
             {/* padded content */}
             <div className='w-2/3 mt-14 '>
               {/* Media TITLE */}
-              {/* <h2 className='uppercase text-4xl font-bold'></h2> */}
               <Skeleton className='h-10' width={300} />
               {/* Media genres */}
-              {/* <p className='text-secondary-text text-sm mt-1'>
-                <span className='mr-2 italic'></span>
-              </p> */}
               <div className='mt-1'>
                 <Skeleton className='h-5 mr-2' width={72} count={3} inline />
               </div>
 
               {/* Media rating and votes */}
-              {/* <div className='flex gap-2 items-end text-primary text-base mb-6'>
-                <span className='text-sm'></span>
-              </div> */}
               <div className='mt-2'>
                 <Skeleton className='h-5 mr-2' width={80} count={2} inline />
               </div>
               {/* Media official tagline if exist */}
               <Skeleton className='h-6 mt-6 w-full' width={250} />
               {/* Media overview */}
-              {/* <h3 className='text-2xl font-bold'></h3> */}
               <Skeleton className='mt-4 h-7' width={116} />
-              {/* <p className='mt-2'></p> */}
               <div className='mt-2'>
                 <Skeleton className='h-4' count={3} />
                 <Skeleton className='h-4' width={160} />
