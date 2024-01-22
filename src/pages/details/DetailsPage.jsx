@@ -27,7 +27,7 @@ function DetailsPage() {
         MediaStore.current && (
           <>
             <div
-              className='pt-24 min-h-[calc(100vh-72px)] pb-10 text-primary-text'
+              className='pt-12 lg:pt-20 2xl:pt-22 min-h-[calc(100vh-72px)] pb-10 sm:pb-0 lg:pb-10 text-primary-text'
               style={{
                 background: MediaStore.current.backdrop_path
                   ? `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.75)), url("https://image.tmdb.org/t/p/original${MediaStore.current.backdrop_path}") no-repeat center / cover`
@@ -35,9 +35,9 @@ function DetailsPage() {
               }}>
               <section className='container mx-auto h-full px-4'>
                 {/* padded content */}
-                <div className='w-2/3 mt-14'>
+                <div className='w-full lg:w-2/3 mt-14'>
                   {/* Media TITLE */}
-                  <h2 className='uppercase text-4xl font-bold'>{MediaStore.current.name}</h2>
+                  <h2 className='uppercase text-3xl sm:text-4xl font-bold'>{MediaStore.current.name}</h2>
                   {/* Media genres */}
                   <p className='text-secondary-text text-sm mt-1'>
                     {MediaStore.current.genres?.map((genre, index) => (
@@ -58,13 +58,13 @@ function DetailsPage() {
                     <p className='italic text-secondary-text text-base mb-4'> {MediaStore.current.tagline} </p>
                   )}
                   {/* Media overview */}
-                  <h3 className='text-2xl font-bold'>Overview</h3>
+                  <h3 className='text-xl sm:text-2xl font-bold'>Overview</h3>
                   <p className='mt-2'>{MediaStore.current.overview && MediaStore.current.overview}</p>
                   {/* button group */}
-                  <div className='mt-7 w-fit flex gap-5'>
+                  <div className='mt-7 w-full sm:w-fit flex gap-2 sm:gap-4'>
                     <button
                       type='button'
-                      className='text-sm rounded-xl border-2 border-primary flex items-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-text bg-transparent font-medium hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0'
+                      className='basis-auto shrink-0 text-center sm:basis-auto text-sm rounded-xl border-2 border-primary flex items-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-text bg-transparent font-medium hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0'
                       onClick={() => navigate(-1)}>
                       <IoMdArrowBack size={16} />
                       Go back
@@ -75,7 +75,7 @@ function DetailsPage() {
                         target='_blank'
                         rel='noopener noreferrer'
                         type='button'
-                        className='text-sm rounded-xl border-2 border-primary flex items-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-background hover:text-primary-background bg-primary hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0 font-medium'>
+                        className='flex-1 text-center sm:basis-auto text-sm rounded-xl border-2 border-primary flex items-center justify-center gap-x-2 pl-3 pr-4 py-2.5 text-primary-background hover:text-primary-background bg-primary hover:ring hover:ring-orange-50 hover:border-primary ring-offset-0 font-medium'>
                         <IoIosLink size={16} />
                         View on website
                       </a>
@@ -85,13 +85,13 @@ function DetailsPage() {
 
                 {/* seasons details */}
                 <div className='mt-8'>
-                  <h3 className='text-2xl font-bold'>
+                  <h3 className='text-xl sm:text-2xl font-bold'>
                     Has {MediaStore.current.number_of_episodes && MediaStore.current.number_of_episodes} episode(s) for{' '}
                     {MediaStore.current.number_of_seasons && MediaStore.current.number_of_seasons} season(s)
                   </h3>
                   <div className='mt-2'>
                     {/* season list */}
-                    <div className='flex flex-row flex-nowrap py-2 gap-3 overflow-x-hidden hover:overflow-x-scroll'>
+                    <div className='flex flex-col sm:flex-row sm:flex-nowrap sm:py-2 gap-3 overflow-x-hidden hover:overflow-x-scroll'>
                       {/* season card details */}
                       {MediaStore.current.seasons &&
                         MediaStore.current.seasons.map((season, index) => {
@@ -99,7 +99,7 @@ function DetailsPage() {
                             return (
                               <div
                                 key={index}
-                                className='p-4 border border-gray-500 rounded w-96 flex-shrink-0 backdrop-blur-sm'>
+                                className='p-4 border border-gray-500 rounded w-full sm:w-96 flex-shrink-0 backdrop-blur-sm'>
                                 <div className='flex justify-between'>
                                   <span className='text-primary'>{season.name && season.name}</span>
                                   <span className='text-secondary-text text-xs'>
@@ -120,12 +120,12 @@ function DetailsPage() {
         )
       ) : (
         // loading skeleton
-        <div className='py-4 pt-24 h-[calc(100vh-72px)] text-primary-text'>
+        <div className='pt-12 lg:pt-20 2xl:pt-22 h-[calc(100vh-72px)] text-primary-text'>
           <section className='container mx-auto h-full px-4'>
             {/* padded content */}
-            <div className='w-2/3 mt-14 '>
+            <div className='w-full lg:w-2/3 mt-14'>
               {/* Media TITLE */}
-              <Skeleton className='h-10' width={300} />
+              <Skeleton className='h-9 sm:h-10' width={300} />
               {/* Media genres */}
               <div className='mt-1'>
                 <Skeleton className='h-5 mr-2' width={72} count={3} inline />
@@ -144,7 +144,7 @@ function DetailsPage() {
                 <Skeleton className='h-4' width={160} />
               </div>
               <div className='mt-7'>
-                <Skeleton className='h-10 mr-5' width={120} inline />
+                <Skeleton className='h-10 mr-2 sm:mr-5' width={120} inline />
                 <Skeleton className='h-10' width={160} inline />
               </div>
             </div>
