@@ -52,7 +52,7 @@ function SearchPage() {
           <p className='text-base text-center'>
             {MediaStore.lastSearchQuery
               ? `Sorry, no results found for "${MediaStore.lastSearchQuery}"`
-              : 'Find any movie you want'}
+              : 'Find your favorite show here'}
           </p>
         )}
       </div>
