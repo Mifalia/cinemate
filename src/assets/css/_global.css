@@ -44,3 +44,32 @@ a:hover {
 p {
   @apply font-serif text-base;
 }
+
+/* custom scrollbar for any element */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-text);
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-text) transparent;
+}
