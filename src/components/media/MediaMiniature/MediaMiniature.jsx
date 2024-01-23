@@ -12,17 +12,13 @@ function MediaMiniature({ thumbnail = '', title = '', year = '' }) {
   return (
     <>
       <div
-        className={`flex flex-col items-center bg-elevation-1 p-3 pb-4 rounded-2xl cursor-pointer hover:bg-elevation-2 ${
+        className={`flex flex-col items-center bg-elevation-1 p-3 pb-4 rounded-xl sm:rounded-2xl cursor-pointer hover:bg-elevation-2 ${
           !isImageLoaded && 'hidden'
         }`}>
         <img
-          src={
-            thumbnail
-              ? `https://image.tmdb.org/t/p/original${thumbnail}`
-              : defaultThumbnail
-          }
+          src={thumbnail ? `https://image.tmdb.org/t/p/original${thumbnail}` : defaultThumbnail}
           alt='Poster Thumbnail'
-          className='mb-4 rounded w-full'
+          className='mb-4 rounded-sm sm:rounded w-full'
           onLoad={handleImageLoad}
         />
         <div className={`w-full flex justify-between items-baseline gap-2`}>
@@ -31,10 +27,7 @@ function MediaMiniature({ thumbnail = '', title = '', year = '' }) {
             {title}
           </span>
           {year && (
-            <span
-              className={`w-fit font-normal text-primary text-xs px-2 py-1 border-2 border-primary`}>
-              {year}
-            </span>
+            <span className={`w-fit font-normal text-primary text-xs px-2 py-1 border-2 border-primary`}>{year}</span>
           )}
         </div>
       </div>
