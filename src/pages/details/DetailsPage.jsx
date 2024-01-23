@@ -91,7 +91,7 @@ function DetailsPage() {
                   </h3>
                   <div className='mt-2'>
                     {/* season list */}
-                    <div className='flex flex-col sm:flex-row sm:flex-nowrap sm:py-2 gap-3 overflow-x-hidden hover:overflow-x-scroll'>
+                    <div className='custom-scrollbar flex flex-col sm:flex-row sm:flex-nowrap sm:py-2 gap-3 overflow-x-scroll lg:overflow-x-hidden lg:hover:overflow-x-scroll'>
                       {/* season card details */}
                       {MediaStore.current.seasons &&
                         MediaStore.current.seasons.map((season, index) => {

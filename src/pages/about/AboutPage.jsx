@@ -14,7 +14,7 @@ function AboutPage() {
   return (
     <HeaderFooterLayout>
       <div className='pt-24 pb-12 container mx-auto px-4 text-primary-text text-justify'>
-        <h1 className='font-bold text-4xl uppercase text-center my-4'>
+        <h1 className='font-bold text-3xl sm:text-4xl uppercase text-center mt-0 mb-4 sm:mt-4'>
           About <span className='text-primary'>Cinemate</span>
         </h1>
         <h2 className='text-left font-bold text-2xl capitalize mt-6 mb-2'>Welcome</h2>
