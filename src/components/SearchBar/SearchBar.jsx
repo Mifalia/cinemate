@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 
 import { FiSearch } from 'react-icons/fi';
 
-function SearchBar({
-  placeholder = '',
-  value = '',
-  className = '',
-  onSubmit = () => {},
-}) {
+function SearchBar({ placeholder = '', value = '', className = '', onSubmit = () => {} }) {
   // input value state
   const [input, setInput] = useState(value);
 
@@ -19,7 +14,9 @@ function SearchBar({
   // handling submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(input);
+    if (input) {
+      onSubmit(input);
+    }
     // alert(input);
   };
 
@@ -31,12 +28,12 @@ function SearchBar({
         defaultValue={value}
         onChange={handleInputChange}
         placeholder={placeholder}
-        className='flex-1 h-12 px-4 appearance-none bg-transparent border-none rounded-none focus:outline-none focus:border-none focus:ring-0 focus:placeholder-transparent dark:text-white'
+        className='placeholder:text-ellipsis flex-1 flex-shrink h-10 sm:h-12 px-4 appearance-none bg-transparent border-none rounded-none focus:outline-none focus:border-none focus:ring-0 focus:placeholder-transparent dark:text-white'
       />
       <button
         type='submit'
-        className='text-base rounded-lg bg-primary-50 hover:bg-primary-500 flex justify-center items-center w-12 h-12 bg-orange-50 text-primary-background hover:bg-orange-100 active:bg-orange-200'>
-        <FiSearch size={20} />
+        className='shrink-0 grow-0 text-base sm:text-xl rounded-lg bg-primary-50 hover:bg-primary-500 flex justify-center items-center w-10 h-10 sm:w-12 sm:h-12 bg-orange-50 text-primary-background hover:bg-orange-100 active:bg-orange-200'>
+        <FiSearch />
       </button>
     </form>
   );
