@@ -34,7 +34,7 @@ function SearchPage() {
       <div className='container mx-auto py-20 px-4'>
         {/* searchbar wrapper */}
         <div className='w-full my-8 flex justify-center items-center'>
-          <div className='w-1/2'>
+          <div className='w-full sm:w-3/4 md:w-2/3 lg:w-1/2'>
             <SearchBar
               placeholder='Example : Moon Knight, Better Call Saul, Rick And Morty ...'
               onSubmit={handleSearch}
