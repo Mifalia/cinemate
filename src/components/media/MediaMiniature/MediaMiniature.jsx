@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import MediaMiniatureSkeleton from 'components/skeletons/MediaMiniatureSkeleton';
-import defaultThumbnail from 'assets/images/default-media-thumbnail.png';
 
 function MediaMiniature({ thumbnail = '', title = '', year = '' }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -16,7 +15,7 @@ function MediaMiniature({ thumbnail = '', title = '', year = '' }) {
           !isImageLoaded && 'hidden'
         }`}>
         <img
-          src={thumbnail ? `https://image.tmdb.org/t/p/original${thumbnail}` : defaultThumbnail}
+          src={thumbnail}
           alt='Poster Thumbnail'
           className='mb-4 rounded-sm sm:rounded w-full'
           onLoad={handleImageLoad}

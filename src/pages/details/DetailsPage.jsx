@@ -8,6 +8,7 @@ import { MediaStore } from 'store/MediaStore';
 import StarRating from 'components/StarRating/StarRating';
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import { IoMdArrowBack, IoIosLink } from 'react-icons/io';
+import { BACKDROP_IMG_BASE_URL } from 'config';
 
 function DetailsPage() {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ function DetailsPage() {
               className='pt-12 lg:pt-20 2xl:pt-22 min-h-[calc(100vh-72px)] pb-10 sm:pb-0 lg:pb-10 text-primary-text'
               style={{
                 background: MediaStore.current.backdrop_path
-                  ? `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.75)), url("https://image.tmdb.org/t/p/original${MediaStore.current.backdrop_path}") no-repeat center / cover`
+                  ? `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.75)), url("${BACKDROP_IMG_BASE_URL}${MediaStore.current.backdrop_path}") no-repeat center / cover`
                   : 'black',
               }}>
               <section className='container mx-auto h-full px-4'>

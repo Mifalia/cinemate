@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MediaMiniature from '../MediaMiniature/MediaMiniature';
+import defaultThumbnail from 'assets/images/default-media-thumbnail.png';
+import { POSTER_IMG_BASE_URL } from 'config';
 
 function MediaList({ mediaList = [] }) {
   return (
@@ -8,7 +10,7 @@ function MediaList({ mediaList = [] }) {
       {mediaList.map((media, index) => (
         <Link to={`/details/${media.id}`} key={index}>
           <MediaMiniature
-            thumbnail={media.poster_path}
+            thumbnail={media.poster_path ? `${POSTER_IMG_BASE_URL}${media.poster_path}` : defaultThumbnail}
             title={media.name}
             year={media.first_air_date && new Date(media.first_air_date).getFullYear()}
           />
