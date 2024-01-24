@@ -21,31 +21,33 @@ function HomePage() {
 
   return (
     <HeaderFooterLayout>
-      <div className='min-h-[calc(100vh-72px)]'>
-        <div
-          className='h-[calc(100vh-48px)] flex flex-col justify-center mx-auto container px-4'
-          style={{
-            background: `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.55)),url(${backgroundImage}) no-repeat top center / cover`,
-          }}>
-          <div className='w-full md:w-5/6 lg:w-3/4 xl:w-1/2'>
-            <h1 className='section-title text-2xl sm:text-3xl font-bold font-sans mb-2'>
-              Welcome to <span className='text-primary'>Cinemate</span>
-            </h1>
-            <p className='section-description text-4xl sm:text-6xl font-bold font-sans mb-6 capitalize'>
-              explore the world of TV Shows & more
-            </p>
-            <p className='w-fit py-0 font-sans transition-transform transform hover:translate-x-4'>
-              <Link className='underline text-base leading-loose' to='/about'>
-                Learn more about us
-                <IoMdArrowForward size={16} className='ml-2 inline-block' />
-              </Link>
-            </p>
-            <button
-              className='w-full justify-center sm:w-fit sm:justify-start mt-24 sm:mt-12 rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'
-              onClick={() => navigate('/discover')}>
-              <RiSearchLine size={18} />
-              Start exploring
-            </button>
+      <div
+        className='min-h-[calc(100vh-72px)]'
+        style={{
+          background: `linear-gradient(to right, #202020, rgba(0, 0, 0, 0.65)),url(${backgroundImage}) no-repeat top center / cover`,
+        }}>
+        <div className='backdrop-blur-[2px]'>
+          <div className='h-[calc(100vh-48px)] flex flex-col justify-center mx-auto container px-4'>
+            <div className='w-full md:w-5/6 lg:w-3/4 xl:w-1/2'>
+              <h1 className='section-title text-2xl sm:text-3xl font-bold font-sans mb-2'>
+                Welcome to <span className='text-primary'>Cinemate</span>
+              </h1>
+              <p className='section-description text-4xl sm:text-6xl font-bold font-sans mb-6 capitalize'>
+                explore the world of TV Shows & more
+              </p>
+              <p className='w-fit py-0 font-sans transition-transform transform hover:translate-x-4'>
+                <Link className='underline text-base leading-loose' to='/about'>
+                  Learn more about us
+                  <IoMdArrowForward size={16} className='ml-2 inline-block' />
+                </Link>
+              </p>
+              <button
+                className='w-full justify-center sm:w-fit sm:justify-start mt-24 sm:mt-12 rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'
+                onClick={() => navigate('/discover')}>
+                <RiSearchLine size={18} />
+                Start exploring
+              </button>
+            </div>
           </div>
         </div>
 
