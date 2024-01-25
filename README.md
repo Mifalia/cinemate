@@ -20,7 +20,6 @@ npm  install
 # .env
 REACT_APP_API_KEY=your_api_key
 REACT_APP_GITHUB_REPOSITORY=https://github.com/Mifalia/cinemate
-
 ```
 
 3. Sign up to [TheMovieDB](https://developer.themoviedb.org/docs/getting-started) and follow the steps to get your api key
@@ -30,7 +29,7 @@ REACT_APP_GITHUB_REPOSITORY=https://github.com/Mifalia/cinemate
 5. Start your local server
 
 ```bash
-$  npm  start
+npm  start
 ```
 
 # Getting Started with Create React App
