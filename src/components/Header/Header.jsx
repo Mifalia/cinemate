@@ -19,14 +19,21 @@ function Header() {
   // toggle menu visibility
   const toggleMenu = () => {
     setShowMenu((current) => !current);
-    document.body.classList.toggle('overflow-y-hidden', !showMenu);
-    document.body.addEventListener;
+    // document.body.classList.toggle('overflow-y-hidden', !showMenu);
   };
 
   // handle menu close on escape
   const closeMenuOnEscape = (event) => {
     // Close the menu if Escape key is pressed
     if (event.key === 'Escape' && showMenu) {
+      toggleMenu();
+    }
+  };
+
+  // handle menu close on scroll
+  const closeMenuOnScroll = (event) => {
+    // Close the menu if user scroll and if the menu is visible
+    if (showMenu) {
       toggleMenu();
     }
   };
@@ -47,8 +54,10 @@ function Header() {
   // hooks
   useEffect(() => {
     window.addEventListener('keydown', closeMenuOnEscape);
+    window.addEventListener('scroll', closeMenuOnScroll);
     return () => {
       window.removeEventListener('keydown', closeMenuOnEscape);
+      window.removeEventListener('scroll', closeMenuOnScroll);
     };
   }, [showMenu]);
 
@@ -74,7 +83,7 @@ function Header() {
 
       {/* menu modal */}
       <div
-        className={`close-menu fixed w-screen h-screen left-0 right-0 overflow-hidden backdrop-blur-[1px] z-[8] bg-gray-50 bg-opacity-5 ${
+        className={`close-menu fixed w-screen h-screen left-0 right-0 bottom-0 top-0 overflow-hidden backdrop-blur-[1px] z-[8] bg-gray-50 bg-opacity-5 ${
           !showMenu ? 'hidden' : ''
         }`}
         onClick={handleModalAreaClick}>
@@ -85,7 +94,7 @@ function Header() {
               <div className='my-4 mx-4'>
                 <SearchbarSmall onSubmit={handleMenuSearchbarSubmit} placeholder='Search ...' />
               </div>
-              <Link to='/' className=''>
+              <Link to='/' className='' onClick={toggleMenu}>
                 <div className='h-12 pl-4 pr-3 flex items-center bg-transparent hover:bg-elevation-3 text-secondary-text hover:text-primary'>
                   <span className='px-3'>
                     <IoHomeOutline size={18} />
@@ -93,7 +102,7 @@ function Header() {
                   <span className='text-sm'>Home</span>
                 </div>
               </Link>
-              <Link to='/discover' className=''>
+              <Link to='/discover' onClick={toggleMenu}>
                 <div className='h-12 pl-4 pr-3 flex items-center bg-transparent hover:bg-elevation-3 text-secondary-text hover:text-primary'>
                   <span className='px-3'>
                     <LuScreenShare size={18} />
@@ -101,7 +110,7 @@ function Header() {
                   <span className='text-sm'>Explore</span>
                 </div>
               </Link>
-              <Link to='/about' className=''>
+              <Link to='/about' className='' onClick={toggleMenu}>
                 <div className='h-12 pl-4 pr-3 flex items-center bg-transparent hover:bg-elevation-3 text-secondary-text hover:text-primary'>
                   <span className='px-3'>
                     <MdInfoOutline size={18} />
