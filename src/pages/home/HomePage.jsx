@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { observer } from 'mobx-react';
-import { RiSearchLine } from 'react-icons/ri';
 import { IoMdArrowForward } from 'react-icons/io';
 // assets import
 import backgroundImage from 'assets/images/main-bg.png';
@@ -11,6 +10,7 @@ import { MediaStore } from 'store/MediaStore';
 import MediaList from 'components/media/MediaList/MediaList';
 import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import MediaListSkeleton from 'components/skeletons/MediaListSkeleton';
+import { LuScreenShare } from 'react-icons/lu';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ function HomePage() {
               <button
                 className='w-full justify-center sm:w-fit sm:justify-start mt-24 sm:mt-12 rounded-xl border-2 border-primary flex items-center gap-x-3 pl-6 pr-8 py-4 text-primary-text bg-transparent font-medium hover:text-primary-background hover:bg-primary'
                 onClick={() => navigate('/discover')}>
-                <RiSearchLine size={18} />
+                <LuScreenShare size={18} />
                 Start exploring
               </button>
             </div>
