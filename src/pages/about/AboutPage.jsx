@@ -5,6 +5,7 @@ import HeaderFooterLayout from 'components/layouts/HeaderFooterLayout';
 import AppLogo from 'assets/images/cinemate-logo.png';
 import RepositoryLogo from 'assets/images/github-logo.png';
 import ApiLogo from 'assets/images/tmdb-logo.svg';
+import { GITHUB_REPOSITORY } from 'config';
 
 function AboutPage() {
   useEffect(() => {
@@ -74,11 +75,7 @@ function AboutPage() {
           <Link to='/'>
             <img src={AppLogo} alt='Cinemate logo' />
           </Link>
-          <a
-            href='https://github.com/Mifalia/cinemate'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='bg-white px-2 rounded-sm'>
+          <a href={GITHUB_REPOSITORY} target='_blank' rel='noopener noreferrer' className='bg-white px-2 rounded-sm'>
             <img src={RepositoryLogo} alt='GitHub logo' className='h-9' />
           </a>
           <a href='https://developer.themoviedb.org/docs/getting-started' target='_blank' rel='noopener noreferrer'>
