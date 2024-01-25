@@ -9,6 +9,7 @@ module.exports = {
         'primary-background': 'var(--primary-background)',
         'elevation-1': 'var(--elevation-1)',
         'elevation-2': 'var(--elevation-2)',
+        'elevation-3': 'var(--elevation-3)',
         primary: 'var(--primary)',
       },
       fontFamily: {
